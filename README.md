@@ -8,7 +8,7 @@ Install
 
 - rvm install 2.7.5
 - rvm use 2.7.5 --default
-- git@github.com:kyhuuhai/training_shop.git
+- git@github.com:kyhuuhai/training_library.git
 - git checkout your_name
 - bundle install
 - rake db:create
@@ -19,7 +19,7 @@ Install
 
 ## Spec
 
-https://docs.google.com/spreadsheets/d/1iWfwf7XSZQzgHwn_H1lRFpJf1Zc-yxpb1dxVcMuXsuk/edit#gid=0
+https://docs.google.com/spreadsheets/d/1iWfwf7XSZQzgHwn_H1lRFpJf1Zc-yxpb1dxVcMuXsuk/edit#gid=1960088734
 
 ## Convention (https://github.com/kyhuuhai/training_shop/blob/master/CONVENTION.md)
 
