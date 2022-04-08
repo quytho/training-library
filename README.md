@@ -77,5 +77,4 @@ https://docs.google.com/spreadsheets/d/1iWfwf7XSZQzgHwn_H1lRFpJf1Zc-yxpb1dxVcMuX
 30. [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)
 31. [Ruby Nil Object](https://ruby-doc.org/core-2.4.0/NilClass.html)
 
-#### Happy coding!!!
-```
+#### Happy coding!
