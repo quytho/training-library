@@ -1,7 +1,7 @@
 - ruby 2.7.5 (install by rvm)
 - Rails 6.0.1
 - Postgres
-
+-rvm use 2.7.5 --default
 ---
 
 Install
@@ -79,3 +79,5 @@ https://docs.google.com/spreadsheets/d/1iWfwf7XSZQzgHwn_H1lRFpJf1Zc-yxpb1dxVcMuX
 
 #### Happy coding!!!
 ```
+ has_many :books
+  validates_associated :books
