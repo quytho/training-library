@@ -3,13 +3,10 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 30px 80px;
     margin-top: 50px;
-
-    
     &-list{
         padding: 10px 5px;
         border: 1px solid black;
         width: 150px;
         height: 200px;
-        
     }
 }
