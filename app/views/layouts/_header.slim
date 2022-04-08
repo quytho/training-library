@@ -1,0 +1,22 @@
+body
+  header.header.wrapper
+    .container-fluid
+      .header-main
+        .header-logo
+          a = link_to 
+            img src=" https://image.shutterstock.com/image-vector/template-logo-library-bookstore-four-260nw-299085131.jpg" , '#'
+        ul.menu
+          .menu-list
+            li.menu-item
+              a.menu-link = link_to "Home", '#'
+           
+            li.menu-item
+              a.menu-link = link_to "Blog", '#'
+            li.menu-item
+              a.menu-link = link_to "About Us", '#'
+            li.menu-item
+              a.menu-link = link_to "Contact Us", '#'
+           
+          .menu-button
+            .button.button--primary =link_to "Signup", '#'
+            .button.button--secondary =link_to "Log in", '#'

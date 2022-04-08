@@ -1,0 +1,11 @@
+.form-search
+  = form_tag "/books", method: :get, class: "form-inline" do
+    label for="search"  
+    select.filter-search name="search" 
+      optgroup label=("Type search") 
+        option value="volvo"  Author
+        option value="saab"  Categories 
+        option value="mercedes"  Name Book
+        option value="audi"  Publisher
+    = text_field_tag "name", params[:query],class: "form-control", placeholder: "Input keyword"
+    = submit_tag "Search", class: "button--search"
