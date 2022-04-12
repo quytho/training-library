@@ -1,15 +1,2 @@
-
-.book
-    -@books.each do |book| 
-        .book-list 
-            p.book-title 
-                | Tên sách: 
-                =book.name
-            p.book-author
-                | Tác giả: 
-                -author = Author.find(book.author_id)
-                = author.name
-            p.book-amount 
-                | Sô lượng:
-                =book.amount
-            =link_to "Details", "#"
+= render "books/form-search"
+= render "books/item-book"
