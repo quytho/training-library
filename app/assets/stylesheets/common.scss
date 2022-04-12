@@ -10,7 +10,6 @@ $bgc-gradient: linear-gradient(253.58deg, #ffc000 1.55%, #ff8a00 95.8%);
 //global
 body {
   line-height: 1;
-  
   color: $gray;
   font-weight: 400;
   background-color: white;
@@ -32,7 +31,6 @@ body {
     display: inline-block;
     padding: 20px 0;
     border-radius: 100px;
-
     line-height: calc(21 / 16);
     font-size: 14px;
     cursor: pointer;
@@ -60,8 +58,6 @@ body {
       width: 800px !important;
       padding: 10px 40px;
   }
-  
-
 //reset
 html {
     box-sizing: border-box;
@@ -98,7 +94,6 @@ html {
     display: block;
     max-width: 100%;
   }
-  
 //header
 .header {
   background: #dedee2d2;
@@ -130,9 +125,6 @@ html {
       gap: 0 0;
     }
   }
-  
-
-
   //menu
   .menu {
     display: flex;
@@ -178,11 +170,8 @@ html {
       display: none;
     }
   }
-  
-
   //footer
   .footer {
-
     margin-top : 300px;
     background-color: $black;
     padding-top: 46px;
@@ -311,4 +300,3 @@ html {
     padding: 7px 35px;
     margin-right: 10px;
   }
-  
