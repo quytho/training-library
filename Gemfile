@@ -23,6 +23,7 @@ gem "sprockets-rails"
 gem "turbo-rails"
 gem 'bootstrap-will_paginate'
 gem 'turbolinks'
+gem 'bcrypt'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
