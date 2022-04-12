@@ -21,6 +21,7 @@ gem 'jbuilder'
 gem "slim-rails"
 gem "sprockets-rails"
 gem "turbo-rails"
+gem "will_paginate"
 gem 'bootstrap-will_paginate'
 gem 'turbolinks'
 group :development, :test do

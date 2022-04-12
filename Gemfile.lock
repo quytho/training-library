@@ -209,6 +209,7 @@ DEPENDENCIES
   turbolinks
   uglifier
   web-console (~> 2.0)
+  will_paginate
 
 BUNDLED WITH
    2.2.15

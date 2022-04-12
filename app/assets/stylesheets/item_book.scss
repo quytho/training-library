@@ -1,12 +1,22 @@
 .book{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 30px 80px;
-    margin-top: 50px;
-    &-list{
-        padding: 10px 5px;
-        border: 1px solid black;
-        width: 150px;
-        height: 200px;
-    }
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 30px 80px;
+	margin-top: 50px;
+	&-list{
+		padding: 10px 5px;
+		border: 1px solid black;
+		width: 150px;
+		height: 200px;
+	}
+}
+.follow, .details{
+	padding: 5px;
+	border: 1px solid black;
+	color: black;
+	background-color:rgb(135, 135, 139);
+
+}
+.follow{
+	margin-right: 10px;
 }
