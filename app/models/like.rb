@@ -1,4 +1,4 @@
-class Like < ApplicationRecord
+class Like < ActiveRecord::Base
     belongs_to :user
     belongs_to :book
 end

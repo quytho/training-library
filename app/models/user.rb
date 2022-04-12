@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
     has_many :borrow_requets
     has_many :follows
     has_many :likes
