@@ -1,0 +1,7 @@
+.categories_all 
+  h1 All Category
+  ul
+    - @categories.each do |categories|
+      li
+        = link_to categories.name, categories
+  =link_to "New Categoty", new_category_path

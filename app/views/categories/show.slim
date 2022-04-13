@@ -1,0 +1,9 @@
+.category_show
+  .category_name
+    h1 Name: 
+    h1.ategories-name = @categories.name 
+    .categori_up 
+      .categories_edit
+        = link_to "Edit", edit_category_path
+      .categories_delete
+        = link_to "delete", category_path, method: :delete, data: {confirm: "Are You sure?"}

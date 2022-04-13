@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   resources :publishers
   resources :books
   get 'signup' => 'users#new'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'index_category' => 'categories#index'
   resources :users
-  resources :authors
+  resources :categories
 end

@@ -1,0 +1,10 @@
+.categories_edit
+    h1 Edit Categoties
+    = form_with model: @categories do |form|
+      div
+        = form.label :name 
+        = form.text_field :name
+        - @categories.errors.full_messages_for(:name).each do |message|
+          div= message
+      div
+        = form.submit
