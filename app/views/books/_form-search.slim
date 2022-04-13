@@ -1,5 +1,11 @@
 .form-search
-  = form_tag "/books", method: :get, class: "form-inline" do
-    label for="search"  
-    = text_field_tag "name", params[:query],class: "form-control", placeholder: "Input keyword"
-    = submit_tag "Search", class: "button--search"
+  =form_tag books_path, method: :get, class: "form-inline" do
+    p
+      = collection_select(nil, :author_id, Author.all, :id, :name, 
+        {selected: params[:author_id], prompt: true},
+        class: "filter-search")
+      = collection_select(nil, :publisher_id, Publisher.all, :id, :name, 
+        {selected: params[:publisher_id], prompt: true},
+        class: "filter-search")
+      = text_field_tag :name, params[:name], class: "form-control"
+      = submit_tag "Search", name: nil, class: "button--search"
