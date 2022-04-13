@@ -1,3 +1,3 @@
-class Publisher < ApplicationRecord
-    has_many :books
+class Publisher < ActiveRecord::Base
+  has_many :books
 end

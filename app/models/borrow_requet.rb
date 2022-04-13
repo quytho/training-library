@@ -1,4 +1,4 @@
-class BorrowRequet < ApplicationRecord
-    belongs_to :user
-    belongs_to :book
+class BorrowRequet < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :book
 end

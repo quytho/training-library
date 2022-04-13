@@ -6,7 +6,6 @@ class CreateBorrowRequets < ActiveRecord::Migration[6.0]
       t.integer :status
       t.references :user, foreign_key: true
       t.references :book, foreign_key: true
-      
       t.timestamps
     end
   end

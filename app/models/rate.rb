@@ -1,4 +1,4 @@
-class Rate < ApplicationRecord
-    belongs_to :user
-    belongs_to :book
+class Rate < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :book
 end

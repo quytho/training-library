@@ -1,5 +1,4 @@
-class Follow < ApplicationRecord
-    belongs_to :user
-    belongs_to :book
-    
+class Follow < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :book
 end

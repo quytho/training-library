@@ -1,3 +1,3 @@
-class Author < ApplicationRecord
-    has_many :books
+class Author < ActiveRecord::Base
+  has_many :books
 end

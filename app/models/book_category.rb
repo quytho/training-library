@@ -1,4 +1,4 @@
-class BookCategory < ApplicationRecord
-  belongs_to :category
+class BookCategory < ActiveRecord::Base
   belongs_to :book
+  belongs_to :category
 end
