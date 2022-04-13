@@ -1,9 +1,9 @@
 .book 
-  -@books.each do |book| 
+  - @books.each do |book| 
   .book-list 
     p.book-title 
       | Tên sách: 
-      =book.name
+      = book.name
     p.book-author
       | Tác giả: 
       -author = Author.find(book.author_id)
@@ -14,6 +14,6 @@
     p.book-rate
       | Đánh giá:
       -rate = Rate.find(book.id)
-      =rate.star
-    =link_to "follow",'#',class: "follow"          
-    =link_to "Details", "#",class: "details"
+      = rate.star
+    = link_to "follow",'#',class: "follow"          
+    = link_to "Details", "#",class: "details"
