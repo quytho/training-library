@@ -7,12 +7,9 @@ class Book < ActiveRecord::Base
   has_many :likes
   has_many :comments
   has_many :rates
-  scope :search_name, ->(name) { where("name LIKE ?", "%#{name}%") 
-    if name.present? }
-  scope :search_author, ->(author_id) { where(author_id: author_id) 
-    if author_id.present? }
-  scope :search_publisher, ->(publisher_id) { where(publisher_id: publisher_id) 
-    if publisher_id.present? }
+  scope :search_name, ->(name) { where("name LIKE ?", "%#{name}%") if name.present? }
+  scope :search_author, ->(author_id) { where(author_id: author_id) if author_id.present? }
+  scope :search_publisher, ->(publisher_id) { where(publisher_id: publisher_id) if publisher_id.present? }
   scope :search, lambda { |params|
     search_name(params[:name])
     .search_author(params[:author_id])
