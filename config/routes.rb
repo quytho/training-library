@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :books
   get 'signup' => 'users#new'
   resources :users
+  resources :authors
 end
