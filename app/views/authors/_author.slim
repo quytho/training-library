@@ -5,13 +5,13 @@
 .authors
   h3
     | Information Author:
-  -@authors.each do |authors|
+  -@authors.each do |author|
     a = link_to 
       img.image-author src=" https://i1.rgstatic.net/ii/profile.image/716475023233024-1547832365171_Q512/Michael-Harth.jpg"
     .author-list
       p.author
         | - Author:
-        = authors.name
+        = author.name
       p
         | - Birth day: 10-01-1999
       p
