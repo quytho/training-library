@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
+  
   create_table "book_categories", force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "book_id"
@@ -35,26 +35,24 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
     t.integer "amount"
     t.boolean "status"
     t.integer "price"
-    t.bigint "authors_id"
-    t.bigint "categories_id"
-    t.bigint "publishers_id"
+    t.bigint "author_id"
+    t.bigint "publisher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["authors_id"], name: "index_books_on_authors_id"
-    t.index ["categories_id"], name: "index_books_on_categories_id"
-    t.index ["publishers_id"], name: "index_books_on_publishers_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "borrow_requets", force: :cascade do |t|
     t.date "borrow_date"
     t.date "return_date"
-    t.boolean "status"
-    t.bigint "users_id"
-    t.bigint "books_id"
+    t.integer "status"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["books_id"], name: "index_borrow_requets_on_books_id"
-    t.index ["users_id"], name: "index_borrow_requets_on_users_id"
+    t.index ["book_id"], name: "index_borrow_requets_on_book_id"
+    t.index ["user_id"], name: "index_borrow_requets_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -65,30 +63,30 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.bigint "users_id", null: false
-    t.bigint "books_id", null: false
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["books_id"], name: "index_comments_on_books_id"
-    t.index ["users_id"], name: "index_comments_on_users_id"
+    t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "books_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["books_id"], name: "index_follows_on_books_id"
-    t.index ["users_id"], name: "index_follows_on_users_id"
+    t.index ["book_id"], name: "index_follows_on_book_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "books_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["books_id"], name: "index_likes_on_books_id"
-    t.index ["users_id"], name: "index_likes_on_users_id"
+    t.index ["book_id"], name: "index_likes_on_book_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "publishers", force: :cascade do |t|
@@ -99,12 +97,12 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
 
   create_table "rates", force: :cascade do |t|
     t.integer "star"
-    t.bigint "users_id"
-    t.bigint "books_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["books_id"], name: "index_rates_on_books_id"
-    t.index ["users_id"], name: "index_rates_on_users_id"
+    t.index ["book_id"], name: "index_rates_on_book_id"
+    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -112,24 +110,23 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
     t.string "email"
     t.string "avatar"
     t.string "password_digest"
-    t.boolean "is_admin"
+    t.boolean "is_admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "book_categories", "books"
   add_foreign_key "book_categories", "categories"
-  add_foreign_key "books", "authors", column: "authors_id"
-  add_foreign_key "books", "categories", column: "categories_id"
-  add_foreign_key "books", "publishers", column: "publishers_id"
-  add_foreign_key "borrow_requets", "books", column: "books_id"
-  add_foreign_key "borrow_requets", "users", column: "users_id"
-  add_foreign_key "comments", "books", column: "books_id"
-  add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "follows", "books", column: "books_id"
-  add_foreign_key "follows", "users", column: "users_id"
-  add_foreign_key "likes", "books", column: "books_id"
-  add_foreign_key "likes", "users", column: "users_id"
-  add_foreign_key "rates", "books", column: "books_id"
-  add_foreign_key "rates", "users", column: "users_id"
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "publishers"
+  add_foreign_key "borrow_requets", "books"
+  add_foreign_key "borrow_requets", "users"
+  add_foreign_key "comments", "books"
+  add_foreign_key "comments", "users"
+  add_foreign_key "follows", "books"
+  add_foreign_key "follows", "users"
+  add_foreign_key "likes", "books"
+  add_foreign_key "likes", "users"
+  add_foreign_key "rates", "books"
+  add_foreign_key "rates", "users"
 end
