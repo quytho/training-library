@@ -1,0 +1,13 @@
+.publisher-new
+  h1.new 
+    | New Publisher
+  = form_with model: @publisher do |form|
+      .publisher-form
+        .form_new_name
+          = form.label :name 
+        .form_filename
+          = form.text_field :name
+          / - @category.errors.full_messages_for(:name).each do |message|
+          /   div= message
+      .publisher-submit
+        = form.submit "Create"
