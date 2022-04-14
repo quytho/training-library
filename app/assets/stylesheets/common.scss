@@ -60,10 +60,17 @@ body {
   }
 
 // signup
-.h1_signup{
+.h1_title{
   text-align: center;
 }
 
+.col-md-offset-3 {
+  margin-left: 28%;
+}
+
+.form-control {
+  margin: 10px 0;
+}
 //reset
 html {
     box-sizing: border-box;
