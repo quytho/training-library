@@ -1,20 +1,21 @@
 class CategoriesController < ApplicationController
+  before_action :get_category, except: [:index, :new]
+  
   def index
-    @categories = Category.all
+    @category = Category.paginate(page: params[ :page], per_page: 3 )
   end
 
   def show
-    @categories = Category.find(params[:id])
   end
 
   def new
-    @categories = Category.new
+    @category = Category.new
   end
 
   def create
-    @categories = Category.new(categories_params)
+    @category = Category.new(categories_params)
 
-    if @categories.save
+    if @category.save
       redirect_to index_category_path
     else
       render :new
@@ -22,27 +23,30 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @categories = Category.find(params[:id])
   end
 
   def update
-    @categories = Category.find(params[:id])
 
-    if @categories.update(categories_params)
-      redirect_to @categories
+    if @category.update(category_params)
+      redirect_to @category
     else
       render :edit
     end
   end
 
   def destroy
-    @categories = Category.find(params[:id])
-    @categories.destroy
+    @category.destroy
     redirect_to index_category_path
   end
 
   private
-    def categories_params
-      params.require(:categories).permit(:name)
+    def category_params
+      params.require(:category).permit(:name)
+    end
+
+    def get_category
+      @category = Category.find_by(params[:id])
+    
+      redirect_to root_url unless @category
     end
 end

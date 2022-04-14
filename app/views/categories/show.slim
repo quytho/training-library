@@ -1,9 +1,13 @@
+.category_title 
+  h1 DETAILS CATEGORY
 .category_show
-  .category_name
-    h1 Name: 
-    h1.ategories-name = @categories.name 
+  .img_c
+    img src=" https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-book-pencil-study-book-image_1216472.jpg"
+    .category_name
+      p.ategory-name Name: 
+      p.ategories-name = @category.name 
     .categori_up 
       .categories_edit
-        = link_to "Edit", edit_category_path
+        = link_to "Edit Category", edit_category_path
       .categories_delete
-        = link_to "delete", category_path, method: :delete, data: {confirm: "Are You sure?"}
+        = link_to "delete Category", category_path, method: :delete, data: {confirm: "Are You sure?"}
