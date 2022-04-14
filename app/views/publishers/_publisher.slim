@@ -1,0 +1,9 @@
+
+  .publisher-list
+    / - @publishers.each do |publisher|
+    .publisher-item
+      p.publisher-name
+        | Nha Xuat Ban: 
+        = publisher.name
+      = link_to "Edit",'#', class: "edit"         
+      = link_to "Delete", "#", class: "delete"
