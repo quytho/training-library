@@ -1,0 +1,15 @@
+.book-list
+  p.book-title
+    | Tên:  
+    = book.name
+  p.book-author
+    | Tác giả: 
+    = book.author.name
+  p.book-amount
+    | Sô lượng:
+    = book.amount
+  p.book-rate
+    | Đánh giá:
+    = book.rates.map(&:star).sum
+  = link_to "follow",'#', class: "follow"         
+  = link_to "Details", "#", class: "details"

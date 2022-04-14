@@ -12,7 +12,7 @@ body {
   line-height: 1;
   color: $gray;
   font-weight: 400;
-  background-color: white;
+  background-color: #e3e3e375;
   }
   .wrapper {
     max-width: 1500px;
@@ -60,7 +60,7 @@ body {
   }
 
 // signup
-.h1_signup{
+.h1_title{
   text-align: center;
 }
 
@@ -71,7 +71,6 @@ body {
 .form-control {
   margin: 10px 0;
 }
-
 //reset
 html {
     box-sizing: border-box;
@@ -93,6 +92,9 @@ html {
   }
   input {
     line-height: normal;
+  }
+  p{
+    text-transform: capitalize;
   }
   li {
     list-style-type: none;
@@ -186,7 +188,7 @@ html {
   }
   //footer
   .footer {
-    margin-top : 300px;
+    margin-top : 100px;
     background-color: $black;
     padding-top: 46px;
     &-main {
@@ -283,34 +285,47 @@ html {
       margin-bottom: 20px;
     }
   }
-  @media screen and (max-width: 767px) {
-    .footer-main {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-right {
-      flex-direction: column;
-      // gap: 10px 0;
-    }
-    .footer-heading {
-      margin-bottom: 10px;
-    }
-    .footer-title {
-      margin-bottom: 20px;
-    }
-    .footer-column:nth-child(3) {
-      padding-top: 0px;
-    }
-    .footer-bottom {
-      flex-direction: column;
-      gap: 10px 0;
-      padding: 13px 50px;
-    }
+@media screen and (max-width: 767px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 10px;
   }
-  .form-search{
-    margin-top: 50px;
+  .footer-right {
+    flex-direction: column;
+    // gap: 10px 0;
   }
-  .filter-search{
-    padding: 7px 35px;
-    margin-right: 10px;
+  .footer-heading {
+    margin-bottom: 10px;
   }
+  .footer-title {
+    margin-bottom: 20px;
+  }
+  .footer-column:nth-child(3) {
+    padding-top: 0px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px 0;
+    padding: 13px 50px;
+  }
+}
+.form-search{
+  margin-top: 50px;
+  padding: 20px 10px;
+  display: fe;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  background-color: #fff;
+}
+.filter-search{
+  padding: 7px 35px;
+  margin-right: 10px;
+  background-color: #fff;
+}
+.center_pag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
