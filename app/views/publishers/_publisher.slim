@@ -3,5 +3,5 @@
     p.publisher-name
       | Nhà Xuất Bản: 
       = publisher.name
-    = link_to "Edit",'#', class: "edit"        
+    = link_to "Edit", publisher_path(publisher.id), class: "edit"        
     = link_to "Delete", "#", class: "delete"
