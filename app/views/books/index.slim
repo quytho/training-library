@@ -1,2 +1,12 @@
-= render "books/form-search"
-= render "books/item-book"
+= render "form-search"
+h3
+  | Tong sach : 
+  = @books.length
+.book
+  - if @books.empty?
+    p.message
+      | Không có sách vào cả!!!
+  - else
+    = render @books
+.center_pag
+  = will_paginate @books

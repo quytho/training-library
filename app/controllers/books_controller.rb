@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.search(params).paginate(page: 1, per_page: 11)
+    @books = Book.includes(:author, :rates).search(params)
+      .paginate(page: params[:page], per_page: 12)
   end
 end
