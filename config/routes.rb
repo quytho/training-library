@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   root 'users#index'
+  resources :publishers
   resources :books
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
