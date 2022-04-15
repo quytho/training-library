@@ -1,4 +1,7 @@
 .form-search.pub
-  = form_tag publishers_path, class: "form-inline" do
-      = text_field_tag :name, params[:name], class: "form-control publis"
-      = submit_tag "Search", name: nil, class: "button--search"
+  = form_tag publishers_path, method: :get, 
+    class: "form-inline" do
+      = text_field_tag :name, params[:name], 
+        class: "form-control publis"
+      = submit_tag "Search", name: nil, 
+        class: "button--search"

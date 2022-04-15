@@ -1,10 +1,12 @@
-= form_with model: @publisher do |form|
+.publisher-new
+  h2
+    | Update Publisher
   .publisher-form
-    .form_new_name
-      = form.label :name 
-    .form_filename
-      = form.text_field :name, value: @publisher.name
-      / - @category.errors.full_messages_for(:name).each do |message|
-      /   div= message
-  .publisher-submit
-    = form.submit "Update"
+      = form_with model: @publisher do |form|
+        .publisher-form
+          .publisher-form-name
+            = form.label :name 
+          .publisher-form-fieldname
+            = form.text_field :name, value: @publisher.name
+          .publisher-submit
+            = form.submit "Update"

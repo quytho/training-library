@@ -4,4 +4,5 @@
       | Nhà Xuất Bản: 
       = publisher.name
     = link_to "Edit", publisher_path(publisher.id), class: "edit"        
-    = link_to "Delete", "#", class: "delete"
+    = link_to "Delete",publisher_path(publisher.id), class: "delete",
+      method: :delete, data: {confirm: "Are You sure?"}

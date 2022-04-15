@@ -1,15 +1,17 @@
 class PublishersController < ApplicationController
   before_action :get_publishers, except: [:index, :new, :create]
   def index
-    @publishers = Publisher.paginate(page: params[:page], per_page: 10)
+    @publishers = Publisher.search(params)
+      .paginate(page: params[:page], per_page: 10)
   end
   def new
     @publisher = Publisher.new
   end
   def create
-    @publisher = Publisher.create(user_params)
-    if @category.save
-    
+    @publisher = Publisher.new(user_params)
+    if @publisher.save
+      flash[:success] = "Publisher successfully"
+      redirect_to publishers_path and return
     else
       render :new
     end
@@ -18,16 +20,21 @@ class PublishersController < ApplicationController
   end
   def update
     if @publisher.update(user_params)
-        flash[:success] = "Post updated"
-        redirect_to @publisher and return
+        flash[:success] = "Publisher updated"
+        redirect_to publishers_path and return
         render 'new'
     end
+  end
+  def destroy
+    @publisher.destroy
+    flash[:success] = "Publisher deleted"
+    redirect_to publishers_path
 end
   private
     def user_params
       params.require(:publisher).permit(:name)
     end
     def get_publishers
-      @publisher = Publisher.find(params[:id])
+      @publisher = Publisher.find_by(id: params[:id])
     end
 end

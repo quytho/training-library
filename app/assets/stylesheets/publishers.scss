@@ -40,6 +40,41 @@
     display: inline-block;
     width: 800px;
     font-size: 18px;
+  }&-form{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 10px 35px;
+    &-name{
+      margin-right: 30px;
+      font-size: 18px;
+    }
+    &-fieldname{
+      margin-right: 40px;
+      input{
+        padding: 5px 10px;
+        width: 700px;
+      }
+    }
+  }
+  &-submit{
+    input{  
+      padding: 7px 20px;
+      background-color: greenyellow;
+      border: none;
+      text-transform: capitalize;
+      font-size: 15px;
+      border-radius: 5px;
+      &:hover{
+        background-color: rgb(228, 231, 28);
+        color: black;
+      }
+    }
+  }
+  &-new{
+    padding: 5px 10px;
+    background-color: white;
+    margin: 10px 0;
   }
 }
 .edit,.delete{
@@ -55,4 +90,11 @@
 }
 .delete{
   background-color: rgb(231, 62, 62);
+}
+.add-f{
+  display: none;
+}
+.display{
+  display: block;
+  // visibility: visible;
 }
