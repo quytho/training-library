@@ -1,5 +1,5 @@
 .publis{
-  width: 900px !important;
+  width: 600px !important;
 }
 .pub{
   justify-content:center;
@@ -7,14 +7,26 @@
 }
 .publisher{
   margin-top: 50px;
+  &-amount{
+    width: 80px;
+  }
   &-list{
     display: flex;
-    justify-content:center;
-    align-items:center;
     flex-direction:column;
-    padding: 20px 20px;
-    background-color: #fff;
     border-bottom: 1px solid;
+  }
+  &-item{
+    display: flex;
+    gap: 0px 98px;
+    padding: 25px 75px;
+    color: black;
+    font-weight: 400;
+  }
+  &-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 65px;  
   }
   &-add{
     padding: 20px 15px;
@@ -28,18 +40,10 @@
       color: #000;
     }
   }
-  &-item{
-    display: flex;
-    justify-content:center;
-    align-items:stretch;
-    gap: 80px 30px;
-    // border: 1px solid gray;
-    padding: 20px 5px ;
-  }
+  
   &-name{
     display: inline-block;
-    width: 800px;
-    font-size: 18px;
+    width: 150px;
   }&-form{
     display: flex;
     align-items: flex-end;
@@ -96,5 +100,29 @@
 }
 .display{
   display: block;
-  // visibility: visible;
+}
+.head{
+  padding: 25px 75px;
+  background-color: #fff;
+  box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  gap: 0px 145px;
+  &-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 140px;
+  }
+}
+.container-admin{
+  margin-top: 50px;
+  background-color: rgb(255,247,223);
+  padding: 50px 100px;
+}
+.cre{
+  display: flex;
+  gap: 0px 100px;
 }

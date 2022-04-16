@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'users#index'
-  resources :publishers
   resources :books
+  namespace :admin do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
+    resources :publishers
+  end
   # get 'publishers' => 'publishers#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
