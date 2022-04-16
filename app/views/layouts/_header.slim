@@ -12,9 +12,25 @@ body
             li.menu-item
               a.menu-link = link_to "Blog", '#'
             li.menu-item
+              a.menu-link = link_to "Author", authors_path
+            li.menu-item
               a.menu-link = link_to "About Us", '#'
             li.menu-item
               a.menu-link = link_to "Contact Us", '#'
-          .menu-button
-            .button.button--primary =link_to "Signup", '#'
-            .button.button--secondary =link_to "Log in", '#'
+          - if logged_in?
+            li.dropdown
+              a.dropdown-toggle[href="#" data-toggle="dropdown"]
+                |  Account 
+                b.caret
+              ul.dropdown-menu
+                li
+                  = link_to "Profile", '#'
+                li
+                  = link_to "Settings", '#'
+                li.divider
+                li
+                  = link_to "Log out", logout_path, method: "delete"
+          - else
+            .menu-button
+              .button.button--primary =link_to "Signup", signup_path
+              .button.button--secondary =link_to "Log in", login_path
