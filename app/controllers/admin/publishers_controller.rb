@@ -46,5 +46,8 @@ class Admin::PublishersController < ApplicationController
     
     def get_publishers
       @publisher = Publisher.find_by_id(params[:id])
+      return if @publisher
+      flash[:warning] = "That publisher could not be found"
+      redirect_to admin_publishers_path 
     end
 end
