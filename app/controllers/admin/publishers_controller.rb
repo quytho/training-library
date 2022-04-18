@@ -29,7 +29,7 @@ class Admin::PublishersController < ApplicationController
       flash[:success] = "Publisher updated"
       redirect_to admin_publishers_path
     else
-      render 'new'
+      render :new
     end
   end
 
