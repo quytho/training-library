@@ -9,5 +9,5 @@
         = publisher.name
     .publisher-button
       = link_to "Edit", admin_publisher_path(publisher.id), class: "edit"        
-      = link_to "Delete",admin_publishers_path(publisher.id), class: "delete",
+      = link_to "Delete",admin_publisher_path(publisher.id), class: "delete",
       method: :delete, data: {confirm: "Are You sure?"}
