@@ -15,7 +15,7 @@ class Admin::PublishersController < ApplicationController
     @publisher = Publisher.new(user_params)
     if @publisher.save
       flash[:success] = "Publisher successfully"
-      redirect_to publishers_path and return
+      redirect_to admin_publishers_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::PublishersController < ApplicationController
   def update
     if @publisher.update(user_params)
       flash[:success] = "Publisher updated"
-      redirect_to publishers_path and return
+      redirect_to admin_publishers_path
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class Admin::PublishersController < ApplicationController
   def destroy
     @publisher.destroy
     flash[:success] = "Publisher deleted"
-    redirect_to publishers_path
+    redirect_to admin_publishers_path
   end
 
   private
