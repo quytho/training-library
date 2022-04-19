@@ -8,6 +8,6 @@
       p.ategories-name = @category.name 
     .categori_up 
       .categories_edit
-        = link_to "Edit Category", edit_category_path
+        = link_to "Edit Category", edit_admin_category_path
       .categories_delete
-        = link_to "delete Category", category_path(@category), method: :delete, data: {confirm: "Are You sure?"}
+        = link_to "delete Category", admin_category_path, method: :delete, data: {confirm: "Are You sure?"}

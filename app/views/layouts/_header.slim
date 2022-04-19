@@ -12,7 +12,7 @@ body
             li.menu-item
               a.menu-link = link_to "Blog", '#'
             li.menu-item
-              a.menu-link = link_to "Author", authors_path
+              / a.menu-link = link_to "Author", authors_path
             li.menu-item
               a.menu-link = link_to "About Us", '#'
             li.menu-item
@@ -33,4 +33,4 @@ body
           - else
             .menu-button
               .button.button--primary =link_to "Signup", signup_path
-              .button.button--secondary =link_to "Log in", login_path
+              / .button.button--secondary =link_to "Log in", login_path

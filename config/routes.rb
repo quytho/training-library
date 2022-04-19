@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :books
   get 'signup' => 'users#new'
   resources :users
+  namespace :admin do
+    resources :categories
   resources :authors
   namespace :admin do
     resources :publishers

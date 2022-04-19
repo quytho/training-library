@@ -1,14 +1,15 @@
-.categories_edit
-    h1 Edit Categoties
-    = form_with model: @category do |form|
-      .form_edit
+.categories_new
+  h1.new 
+    | New Categoties
+  = form_for([:admin, @category ])  do |form|
+      .form_new
         .img_c
           img src=" https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-book-pencil-study-book-image_1216472.jpg"
-        .form_name
+        .form_new_name
           = form.label :name 
         .form_filename
           = form.text_field :name
           - @category.errors.full_messages_for(:name).each do |message|
             div= message
-      .form_submit
+      .form_new_submit
         = form.submit

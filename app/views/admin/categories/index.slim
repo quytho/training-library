@@ -2,7 +2,7 @@
   h1 All Category
   = render "form-search"
   h3.new 
-    =link_to "New Categoty", new_category_path
+    =link_to "New Categoty", new_admin_category_path
   .category
     - @category.each do |category|
       .category-list
@@ -13,5 +13,5 @@
           .name 
             = category.name
         .detail
-          = link_to "Detail" , category
+          = link_to "Detail" , admin_category_path(category.id)
   = will_paginate @category
