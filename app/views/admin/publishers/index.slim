@@ -1,9 +1,12 @@
 .container-admin
-  h2.pub-title
-    | Manage Publisher
-  = render "search"
-  = render "add"
-  = render "head"
-  = render @publishers
-  .center_pag
-    = will_paginate @publishers
+  .publisher-content
+    h2.pub-title
+      | Manage Publisher
+    .publisher-but
+      = render "add"
+      = render "export"
+    = render "search"
+    = render "head"
+    = render @publishers
+    .center_pag
+      = will_paginate @publishers
