@@ -1,0 +1,14 @@
+.authors {
+  display: flex;
+  justify-content: space-around;
+  .author-border {
+    width: 210px;
+    .author-list {
+      padding: 15px;
+      background-color: aliceblue;
+    }
+    .image-author {
+      width: 210px;
+    }
+  }
+}
