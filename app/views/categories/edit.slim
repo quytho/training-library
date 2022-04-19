@@ -1,0 +1,14 @@
+.categories_edit
+    h1 Edit Categoties
+    = form_with model: @category do |form|
+      .form_edit
+        .img_c
+          img src=" https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-book-pencil-study-book-image_1216472.jpg"
+        .form_name
+          = form.label :name 
+        .form_filename
+          = form.text_field :name
+          - @category.errors.full_messages_for(:name).each do |message|
+            div= message
+      .form_submit
+        = form.submit
