@@ -5,6 +5,10 @@ class Admin::PublishersController < ApplicationController
     @publishers = Publisher.search(params)
       .order_name
       .paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.html
+        format.xls { send_data @publishers.to_xls(col_sep: "\t") }
+      end
   end
 
   def new
@@ -34,8 +38,11 @@ class Admin::PublishersController < ApplicationController
   end
 
   def destroy
-    @publisher.destroy
-    flash[:success] = "Publisher deleted"
+    if @publisher&.destroy
+      flash[:success] = "Delete successfully"
+    else
+      flash[:danger] = "Delete failed"
+    end
     redirect_to admin_publishers_path
   end
 
@@ -48,6 +55,6 @@ class Admin::PublishersController < ApplicationController
       @publisher = Publisher.find_by_id(params[:id])
       return if @publisher
       flash[:warning] = "That publisher could not be found"
-      redirect_to admin_publishers_path 
+      redirect_to admin_publishers_path  
     end
 end
