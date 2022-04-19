@@ -1,0 +1,13 @@
+.author-new
+  .h1_title
+    h2
+      | Update author
+.author-form
+  = form_for([:admin, @author]) do |form|
+    .author-form
+      .author-form-name
+        = form.label :name 
+      .author-form-fieldname
+        = form.text_field :name, value: @author.name
+      .author-submit
+        = form.submit "Update"
