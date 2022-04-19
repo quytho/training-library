@@ -1,0 +1,12 @@
+.publisher-new
+  h1.new 
+    | New Publisher
+  .publisher-form
+    = form_for([:admin, @publisher]) do |form|
+      .publisher-form
+        .publisher-form-name
+          = form.label :name 
+        .publisher-form-fieldname
+          = form.text_field :name
+        .publisher-submit
+          = form.submit "Create"

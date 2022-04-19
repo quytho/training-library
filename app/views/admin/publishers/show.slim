@@ -1,0 +1,12 @@
+.publisher-new
+  h2
+    | Update Publisher
+  .publisher-form
+    = form_for([:admin, @publisher]) do |form|
+      .publisher-form
+        .publisher-form-name
+          = form.label :name 
+        .publisher-form-fieldname
+          = form.text_field :name, value: @publisher.name
+        .publisher-submit
+          = form.submit "Update"
