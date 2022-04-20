@@ -1,0 +1,17 @@
+.categories_all 
+  h1 All Category
+  = render "form-search"
+  h3.new 
+    =link_to "New Categoty", new_admin_category_path
+  .category
+    - @category.each do |category|
+      .category-list
+        .img_c
+          img src=" https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-book-pencil-study-book-image_1216472.jpg"
+        .category-name
+          p Name category:
+          .name 
+            = category.name
+        .detail
+          = link_to "Detail" , admin_category_path(category.id)
+  = will_paginate @category

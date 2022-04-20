@@ -1,0 +1,9 @@
+.form-search
+  = form_tag admin_authors_path, method: :get,
+    class: "form-inline" do
+      .search-item
+        = text_field_tag :name, params[:name], 
+          class: "form-control publis"
+        .search-button
+          = submit_tag "Search", name: nil, 
+            class: "button--search"

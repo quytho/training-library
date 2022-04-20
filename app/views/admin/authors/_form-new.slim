@@ -1,0 +1,12 @@
+.author-new
+  .h1_title
+    h1
+      | New Author
+  = form_for([:admin, @author]) do |form|
+    .author-form
+      .author-form-name
+        = form.label :name
+      .author-form-fieldname
+        = form.text_field :name, value: @author.name
+      .author-submit
+        = form.submit "Create"
