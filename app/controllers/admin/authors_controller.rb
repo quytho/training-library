@@ -41,7 +41,7 @@ class Admin::AuthorsController < ApplicationController
     if
       @author.destroy
       flash[:success] = "Delete successfully"
-    end 
+    end
       redirect_to admin_authors_path
   end
   
