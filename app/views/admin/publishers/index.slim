@@ -7,6 +7,10 @@
       = render "export"
     = render "search"
     = render "head"
-    = render @publishers
+    - if @publishers.length > 0
+      = render @publishers
+    - else
+      h2 
+        | Khong co ket qua nao!!!
     .center_pag
       = will_paginate @publishers

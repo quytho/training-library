@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   root 'users#index'
   resources :books
   namespace :admin do
-    # Directs /admin/products/* to Admin::ProductsController
-    # (app/controllers/admin/products_controller.rb)
     resources :publishers
+    resources :books
   end
+  # namespace :admin do
+  # end
   # get 'publishers' => 'publishers#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

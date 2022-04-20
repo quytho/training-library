@@ -1,0 +1,10 @@
+.container-admin
+  .publisher-content
+    h2.pub-title
+      | Manage Books
+    .publisher-but
+    = render "search"
+    = render "head"
+    = render @books
+    .center_pag
+      = will_paginate @books

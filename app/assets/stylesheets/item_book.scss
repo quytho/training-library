@@ -39,3 +39,17 @@
 .follow{
 	margin-right: 10px;
 }
+.books{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0 130px;
+}
+.cre-book{
+	display: flex;
+	gap: 0px 76px;
+}
+.book-create{
+	display: inline-block;
+  width: 112px;
+}
