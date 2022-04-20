@@ -1,5 +1,4 @@
 class Author < ActiveRecord::Base
-  CSV_ATTRIBUTES = %w(name).freeze
   has_many :books, dependent: :destroy
   scope :order_name, -> { order(name: :ASC)}
   scope :search_name, ->(name) { where("LOWER(name) LIKE ?", "%#{name}%") if name.present? }

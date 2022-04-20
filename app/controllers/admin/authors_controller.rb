@@ -1,13 +1,13 @@
 class Admin::AuthorsController < ApplicationController
   before_action :get_authors, except: [:index, :new, :create]
-
+  PAGE = 5
   def index
     @authors = Author.search(params)
       .order_name
-      .paginate(page: params[:page], per_page: 10)
+      .paginate(page: params[:page], per_page: PAGE)
       respond_to do |format|
         format.html
-        format.xls { send_data @authors.to_xls(col_sep: "\t") }
+        format.xls { send_data @authors.to_xls(col_sep: "\t"), filename: 'export_authors.xls' }
       end
   end
 
@@ -38,12 +38,11 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def destroy
-    if @author.destroy
+    if
+      @author.destroy
       flash[:success] = "Delete successfully"
-    else
-      flash[:danger] = "Delete failed"
-    end
-    redirect_to admin_authors_path
+    end 
+      redirect_to admin_authors_path
   end
   
   private
