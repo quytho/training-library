@@ -1,10 +1,9 @@
 class Admin::AuthorsController < ApplicationController
   before_action :get_authors, except: [:index, :new, :create]
-  PAGE = 5
   def index
     @authors = Author.search(params)
       .order_name
-      .paginate(page: params[:page], per_page: PAGE)
+      .paginate(page: params[:page], per_page: Settings.page)
       respond_to do |format|
         format.html
         format.xls { send_data @authors.to_xls(col_sep: "\t"), filename: 'export_authors.xls' }
