@@ -4,6 +4,11 @@ class Admin::AuthorsController < ApplicationController
   def index
     @authors = Author.search(params)
       .order_name
+      .paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.html
+        format.xls { send_data @authors.to_xls(col_sep: "\t") }
+      end
   end
 
   def new
@@ -33,8 +38,11 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def destroy
-    @author.destroy
-    flash[:success] = "Author deleted"
+    if @author.destroy
+      flash[:success] = "Delete successfully"
+    else
+      flash[:danger] = "Delete failed"
+    end
     redirect_to admin_authors_path
   end
   
