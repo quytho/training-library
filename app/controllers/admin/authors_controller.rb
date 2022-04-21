@@ -1,17 +1,14 @@
+require 'suggest'
 class Admin::AuthorsController < ApplicationController
   before_action :get_authors, except: [:index, :new, :create]
-  
-  class Constant
-    PAGINATE = 5
-  end
 
   def index
     @authors = Author.search(params)
       .order_name
-      .paginate(page: params[:page], per_page: Constant::PAGINATE)
+      .paginate(page: params[:page], per_page: Constant::PER_PAGE)
       respond_to do |format|
         format.html
-        format.xls { send_data @authors.to_xls(col_sep: "\t"), filename: 'export_authors_' + Time.now.to_s + '.xls' }
+        format.xls { send_data @authors.to_xls(col_sep: "\t"), filename: 'export_authors_' + Constant::DATE_TIME + '.xls' }
       end
   end
 
@@ -42,7 +39,7 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def destroy
-    if (Book.where(author_id: params[:id])).empty?
+    if Book.where(author_id: params[:id]).empty?
       @author.destroy
       flash[:success] = "Delete successfully"
     else
