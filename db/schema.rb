@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-  
+
   create_table "book_categories", force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "book_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer "star"
+    t.integer "star", default: 0
     t.bigint "user_id"
     t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
