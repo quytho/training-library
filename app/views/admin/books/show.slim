@@ -1,0 +1,32 @@
+.admin-book
+  h2
+    | Detail Book
+  .adminBook-form
+    = form_for([:admin, @book]) do |form|
+      .book-form
+        .book-field
+          .book-form-name
+            = form.label :name 
+          = @book.name
+        .book-field
+          .book-form-name
+            = form.label :amount 
+          =@book.amount
+        .book-field
+          .book-form-name
+            = form.label :price 
+          = @book.price
+        .book-field
+          .book-form-name
+            = form.label :status 
+          = @book.status
+        .book-field
+          .book-form-name
+            = form.label :Author 
+          = @book.author.name
+        .book-field
+          .book-form-name
+            = form.label :Publisher 
+          = @book.publisher.name
+        .book-submit
+    = link_to "Back", admin_books_path, class: "book-update"
