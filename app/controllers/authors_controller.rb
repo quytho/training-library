@@ -1,9 +1,5 @@
 class AuthorsController < ApplicationController
-  class Constant
-    PAGINATE = 5
-  end
-  
   def index
-    @authors = Author.paginate(page: params[:page], per_page: Constant::PAGINATE)
+    @authors = Author.paginate(page: params[:page], per_page: Constant::PER_PAGE)
   end
 end
