@@ -1,16 +1,18 @@
 class Admin::PublishersController < ApplicationController
   layout :dynamic_layout
   before_action :get_publishers, except: [:index, :new, :create]
-
+  class Constant 
+    Page = 10
+  end
   def index
     @publishers = Publisher.search(params)
       .order_name
-      .paginate(page: params[:page], per_page: 10)
+      .paginate(page: params[:page], per_page: Constant::Page)
       respond_to do |format|
         format.html
-        format.xls { send_data @publishers.to_xls(col_sep: "\t"), filename: 'export_publisher.xls'} 
+        format.xls { send_data @publishers.to_xls(col_sep: "\t"), filename: 'export_publisher' + Time.now.to_s + '.xls'} 
       end
-  end
+    end 
 
   def new
     @publisher = Publisher.new
@@ -39,10 +41,11 @@ class Admin::PublishersController < ApplicationController
   end
 
   def destroy
-    if @publisher&.destroy
+    if (Book.where(publisher_id: params[:id])).empty?
+      @publisher&.destroy
       flash[:success] = "Delete successfully"
     else
-      flash[:danger] = "Delete failed"
+      flash[:warning] = "Delete failed"
     end
     redirect_to admin_publishers_path
   end

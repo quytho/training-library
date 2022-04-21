@@ -7,6 +7,9 @@
       = render "export"
     = render "search"
     = render "head"
+    - flash.each do |type, msg|
+      .alert
+        = msg
     - if @publishers.length > 0
       = render @publishers
     - else

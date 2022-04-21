@@ -10,6 +10,10 @@
   &-amount{
     width: 80px;
   }
+  &-button{
+    display: flex;
+    gap: 0px 1px;
+  }
   &-but{
     display: flex;
     gap: 0 15px;
@@ -152,6 +156,7 @@
 }
 .yield-content{
   overflow: hidden;
+  width: 100%;
 }
 .book-se{
   width: 400px !important;
@@ -186,4 +191,10 @@
     display: block;
   }
   .dropdown-content a:hover {background-color: #f1f1f1}
+}
+.alert{
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: red;
 }

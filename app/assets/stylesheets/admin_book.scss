@@ -1,0 +1,57 @@
+.admin-book{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 50px;
+  gap: 30px 0;
+}
+.book{
+  &-field{
+    display: flex;
+    gap: 0px 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &-button{
+    display: flex;
+    gap: 0 1px;
+  }
+  &-form{
+    &-name{
+      width: 150px;
+      color: black;
+      font-weight: 500;
+    }
+    &-fieldname{
+      input{
+        padding: 5px 10px;
+      }
+    }
+  }
+  &-submit{
+    display: flex;
+    justify-content: center;
+  }
+  &-update{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: green;
+    border: none;
+    color: #fff;
+    &:hover{
+      background-color: rgb(96, 221, 96);
+    }
+  }
+}
+.filter-book {
+  padding: 5px 30px;
+  width: 205px;
+}
+
+select#book_author_id {
+  padding: 5px 31px;
+}
+select#book_publisher_id {
+  padding: 5px 53px;
+}
