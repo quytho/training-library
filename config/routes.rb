@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'users#index'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
@@ -11,5 +13,8 @@ Rails.application.routes.draw do
     resources :publishers
     resources :authors
     resources :categories
+    resources :books
   end
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

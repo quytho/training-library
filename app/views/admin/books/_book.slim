@@ -1,0 +1,14 @@
+.publisher-item
+  .publisher-name 
+    = book.name
+  .cre-book
+    .publisher-detail
+      p.publisher-create.book-create
+        = book.author.name
+      p.publisher-amount 
+        = book.amount
+    .publisher-button
+      = link_to "Details", admin_book_path(book.id), class: "detail" 
+      = link_to "Edit", admin_book_path(book.id), class: "edit"        
+      = link_to "Delete", admin_book_path(book.id), class: "delete",
+      method: :delete, data: {confirm: "Are You sure?"}

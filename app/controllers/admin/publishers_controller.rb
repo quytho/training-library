@@ -1,4 +1,5 @@
 class Admin::PublishersController < ApplicationController
+  layout :dynamic_layout
   before_action :get_publishers, except: [:index, :new, :create]
 
   def index
@@ -7,7 +8,7 @@ class Admin::PublishersController < ApplicationController
       .paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.html
-        format.xls { send_data @publishers.to_xls(col_sep: "\t") }
+        format.xls { send_data @publishers.to_xls(col_sep: "\t"), filename: 'export_publisher.xls'} 
       end
   end
 
@@ -56,5 +57,13 @@ class Admin::PublishersController < ApplicationController
       return if @publisher
       flash[:warning] = "That publisher could not be found"
       redirect_to admin_publishers_path  
+    end
+
+    def dynamic_layout
+      if true # replace for if current_user.admin?
+        "admin"
+      else
+        "users"
+      end
     end
 end
