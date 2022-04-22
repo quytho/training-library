@@ -1,55 +1,58 @@
 .book{
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-gap: 32px 39px;
-	margin-top: 50px;
-	padding: 40px 20px;
-	background: #ffffff;
-	&-list{
-		padding: 10px 5px;
-		width: 150px;
-		height: 150px;
-		transition: all 0.5s;
-		&:hover{
-			.follow, .details{
-				background-color:rgb(61, 129, 156);
-			}
-			box-shadow: rgba(118, 118, 126, 0.2) 0px 7px 29px 0px;
-		}
-	}
-	&-title, &-author{
-		display: inline-block;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 32px 39px;
+  margin-top: 50px;
+  padding: 40px 20px;
+  background: #ffffff;
+  &-list{
+    padding: 10px 5px;
+    width: 150px;
+    height: 150px;
+    transition: all 0.5s;
+    &:hover{
+      .follow, .details{
+        background-color:rgb(61, 129, 156);
+      }
+      box-shadow: rgba(118, 118, 126, 0.2) 0px 7px 29px 0px;
+    }
+  }
+  &-title, &-author{
+    display: inline-block;
     width: 140px;
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
-	}
-	&-title{
-		font-size: 15px;
-	}
+  }
+  &-title{
+    font-size: 15px;
+  }
 }
 .follow, .details{
-	padding: 5px;
-	color: black;
-	text-transform: capitalize;
-	&:hover{
-		text-decoration: none;
-	}
+  padding: 5px;
+  color: black;
+  text-transform: capitalize;
+  &:hover{
+    text-decoration: none;
+  }
 }
 .follow{
-	margin-right: 10px;
+  margin-right: 10px;
 }
+
 .books{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 130px;
 }
+
 .cre-book{
-	display: flex;
-	gap: 0px 76px;
+  display: flex;
+  gap: 0px 76px;
 }
+
 .book-create{
-	display: inline-block;
+  display: inline-block;
   width: 112px;
 }
