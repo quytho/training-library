@@ -1,16 +1,14 @@
 class Admin::PublishersController < ApplicationController
   layout :dynamic_layout
   before_action :get_publishers, except: [:index, :new, :create]
-  class Constant 
-    Page = 10
-  end
+  
   def index
     @publishers = Publisher.search(params)
       .order_name
-      .paginate(page: params[:page], per_page: Constant::Page)
+      .paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.html
-        format.xls { send_data @publishers.to_xls(col_sep: "\t"), filename: 'export_publisher' + Time.now.to_s + '.xls'} 
+        format.xls { send_data @publishers.to_xls(col_sep: "\t") } 
       end
     end 
 
@@ -21,11 +19,11 @@ class Admin::PublishersController < ApplicationController
   def create
     @publisher = Publisher.new(user_params)
     if @publisher.save
-      flash[:success] = "Publisher successfully"
-      redirect_to admin_publishers_path
+      flash[:success] = "Publisher create successfully"
     else
-      render :new
+      flash[:warning] = "Publisher create failed"
     end
+    redirect_to admin_publishers_path
   end
 
   def show
@@ -34,18 +32,18 @@ class Admin::PublishersController < ApplicationController
   def update
     if @publisher.update(user_params)
       flash[:success] = "Publisher updated"
-      redirect_to admin_publishers_path
     else
-      render :new
+      flash[:warning] = "Publisher update failed"
     end
+    redirect_to admin_publishers_path
   end
 
   def destroy
-    if (Book.where(publisher_id: params[:id])).empty?
+    if @publisher.books.exists?
+      flash[:warning] = "Delete failed"
+    else
       @publisher&.destroy
       flash[:success] = "Delete successfully"
-    else
-      flash[:warning] = "Delete failed"
     end
     redirect_to admin_publishers_path
   end

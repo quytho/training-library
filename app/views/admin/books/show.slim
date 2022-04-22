@@ -6,27 +6,27 @@
       .book-form
         .book-field
           .book-form-name
-            = form.label :name 
+            = form.label :name
           = @book.name
         .book-field
           .book-form-name
-            = form.label :amount 
+            = form.label :amount
           =@book.amount
         .book-field
           .book-form-name
-            = form.label :price 
+            = form.label :price
           = @book.price
         .book-field
           .book-form-name
-            = form.label :status 
+            = form.label :status
           = @book.status
         .book-field
           .book-form-name
-            = form.label :Author 
+            = form.label :Author
           = @book.author.name
         .book-field
           .book-form-name
-            = form.label :Publisher 
+            = form.label :Publisher
           = @book.publisher.name
         .book-submit
     = link_to "Back", admin_books_path, class: "book-update"

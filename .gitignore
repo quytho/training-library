@@ -11,19 +11,3 @@
 /log/*
 !/log/.keep
 /tmp
-<<<<<<< HEAD
-
-=======
-app/views/publishers/_add.slim
-app/views/publishers/_add.slim
-app/views/publishers/_form-new.slim
-app/views/publishers/_publisher.slim
-app/views/publishers/_search.slim
-app/views/publishers/index.slim
-app/views/publishers/new.js.slim
-app/views/publishers/show.slim
-
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
->>>>>>>  manager book
