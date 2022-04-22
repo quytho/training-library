@@ -1,6 +1,10 @@
 class Admin::BooksController < AdminController
   before_action :get_books, except: [:index, :new, :create]
 
+  before_action :logged_in_user
+
+  before_action :admin_user
+  
   def new
     @book = Book.new
     @book.build_publisher

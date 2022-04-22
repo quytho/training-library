@@ -1,6 +1,10 @@
 class Admin::AuthorsController < AdminController
   before_action :get_authors, except: [:index, :new, :create]
 
+  before_action :logged_in_user
+
+  before_action :admin_user
+
   def index
     @authors = Author.search(params)
       .order_name
