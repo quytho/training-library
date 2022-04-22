@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_170302) do
+ActiveRecord::Schema.define(version: 2022_04_22_035403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-  
+
   create_table "book_categories", force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "book_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer "star"
+    t.integer "star", default: 0
     t.bigint "user_id"
     t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
@@ -113,6 +113,11 @@ ActiveRecord::Schema.define(version: 2022_04_11_170302) do
     t.boolean "is_admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
   add_foreign_key "book_categories", "books"
