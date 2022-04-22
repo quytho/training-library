@@ -1,6 +1,4 @@
-class Admin::BooksController < ApplicationController
-  layout :dynamic_layout
-
+class Admin::BooksController < AdminController
   before_action :get_books, except: [:index, :new, :create]
 
   def new
@@ -25,7 +23,7 @@ class Admin::BooksController < ApplicationController
     else
       flash[:warning] = "Book delete failed"
     end
-    redirect_to admin_books_path
+    render :index
   end
 
   def show
@@ -34,20 +32,22 @@ class Admin::BooksController < ApplicationController
   def update
     if @book.update(book_params)
       flash[:success] = "Book updated"
+      render :index
     else
       flash[:warning] = "Book updatedd failed"
+      render :edit
     end
-    redirect_to admin_books_path
   end
 
   def create
     @book = Book.new(book_params)
     if @book.save
       flash[:success] = "Book create successfully"
+      render :index
     else
       flash[:warning] = "Book create failed"
+      render :new
     end
-    redirect_to admin_books_path
   end
 
   private
@@ -61,14 +61,7 @@ class Admin::BooksController < ApplicationController
       @book = Book.find_by_id(params[:id])
       return if @book
       flash[:warning] = "That book could not be found"
-      redirect_to admin_books_path  
+      render :index  
     end
 
-    def dynamic_layout
-      if true # replace for if current_user.admin?
-        "admin"
-      else
-        "users"
-      end
-    end
 end

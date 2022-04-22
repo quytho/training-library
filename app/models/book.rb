@@ -8,8 +8,6 @@ class Book < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :rates, dependent: :destroy
   validates :name, presence: true
-  # validates :publisher_id, presence: true
-  # validates :author_id, presence: true
   validates :amount, presence: true
   accepts_nested_attributes_for :publisher
   accepts_nested_attributes_for :author

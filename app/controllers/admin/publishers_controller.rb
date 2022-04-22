@@ -1,7 +1,6 @@
-class Admin::PublishersController < ApplicationController
-  layout :dynamic_layout
+class Admin::PublishersController < AdminController
   before_action :get_publishers, except: [:index, :new, :create]
-  
+
   def index
     @publishers = Publisher.search(params)
       .order_name
@@ -19,11 +18,12 @@ class Admin::PublishersController < ApplicationController
   def create
     @publisher = Publisher.new(user_params)
     if @publisher.save
-      flash[:success] = "Publisher create successfully"
+      flash[:success] = "Publisher successfully"
+      redirect_to admin_publishers_path
     else
       flash[:warning] = "Publisher create failed"
+      render :new
     end
-    redirect_to admin_publishers_path
   end
 
   def show
@@ -32,10 +32,11 @@ class Admin::PublishersController < ApplicationController
   def update
     if @publisher.update(user_params)
       flash[:success] = "Publisher updated"
+      redirect_to admin_publishers_path
     else
       flash[:warning] = "Publisher update failed"
+      render :show
     end
-    redirect_to admin_publishers_path
   end
 
   def destroy
@@ -60,11 +61,4 @@ class Admin::PublishersController < ApplicationController
       redirect_to admin_publishers_path  
     end
 
-    def dynamic_layout
-      if true # replace for if current_user.admin?
-        "admin"
-      else
-        "users"
-      end
-    end
 end

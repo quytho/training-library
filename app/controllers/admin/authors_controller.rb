@@ -1,5 +1,4 @@
-require 'suggest'
-class Admin::AuthorsController < ApplicationController
+class Admin::AuthorsController < AdminController
   before_action :get_authors, except: [:index, :new, :create]
 
   def index

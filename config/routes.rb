@@ -15,10 +15,6 @@ Rails.application.routes.draw do
     resources :categories
     resources :books
   end
-<<<<<<< HEAD
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 end
-=======
-end
->>>>>>>  manager book

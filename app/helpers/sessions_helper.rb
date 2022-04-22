@@ -23,4 +23,13 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
+
+  def admin_user
+    redirect_to(books_path) unless current_user.is_admin?
+  end
+
 end

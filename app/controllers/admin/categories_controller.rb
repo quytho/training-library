@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < AdminController
   before_action :get_category, except: [:index, :new, :create]
 
   def index

@@ -2,7 +2,6 @@ class Publisher < ActiveRecord::Base
   CSV_ATTRIBUTES = %w(name).freeze
   has_many :books, dependent: :destroy
   validates :name, presence: true
-  attr_accessor :books
   scope :order_name, -> { order(name: :ASC)}
   scope :search_name, ->(name) { where("LOWER(name) LIKE ?", "%#{name}%") if name.present? }
   scope :search, lambda { |params|
