@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   root 'users#index'
-  resources :books
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users
   resources :authors
+  resources :books
   namespace :admin do
     resources :publishers
     resources :authors

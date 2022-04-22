@@ -150,9 +150,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    searchkick (5.0.3)
-      activemodel (>= 5.2)
-      hashie
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -207,7 +204,6 @@ DEPENDENCIES
   pg
   rails (= 6.0.1)
   sass-rails
-  searchkick
   slim-rails
   spring
   sprockets-rails
