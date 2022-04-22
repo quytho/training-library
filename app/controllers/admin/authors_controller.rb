@@ -45,7 +45,7 @@ class Admin::AuthorsController < ApplicationController
     else
       flash[:danger] = "Delete failed"
     end
-      redirect_to admin_authors_path
+    redirect_to admin_authors_path
   end
   
   private
