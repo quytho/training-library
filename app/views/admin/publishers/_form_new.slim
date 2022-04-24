@@ -3,9 +3,10 @@
     | New Publisher
   .publisher-form
     = form_for([:admin, @publisher]) do |form|
+      = render "shared/error_messages", object: form.object
       .publisher-form
         .publisher-form-name
-          = form.label :name 
+          = form.label :name
         .publisher-form-fieldname
           = form.text_field :name
         .publisher-submit

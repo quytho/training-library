@@ -1,0 +1,27 @@
+.admin-book
+  h2
+    | Update Book
+  .adminBook-form
+    = form_for([:admin, @book]) do |form|
+      .book-form
+        .book-field
+          .book-form-name
+            = form.label :name
+          .book-form-fieldname
+            = form.text_field :name, value: @book.name
+        .book-field
+          .book-form-name
+            = form.label :amount
+          .book-form-fieldname
+            = form.text_field :amount, value: @book.amount
+        .book-field
+          .book-form-name
+            = form.label :price
+          .book-form-fieldname
+            = form.text_field :price, value: @book.price
+        .book-field
+          .book-form-name
+            = form.label :status
+          = form.check_box :status
+        .book-submit
+          = form.submit "Update", class: "book-update"

@@ -7,8 +7,8 @@
         = book.author.name
       p.publisher-amount 
         = book.amount
-    .publisher-button
+    .publisher-button.book-button
       = link_to "Details", admin_book_path(book.id), class: "detail" 
-      = link_to "Edit", admin_book_path(book.id), class: "edit"        
+      = link_to "Edit", edit_admin_book_path(book.id), class: "edit"        
       = link_to "Delete", admin_book_path(book.id), class: "delete",
       method: :delete, data: {confirm: "Are You sure?"}

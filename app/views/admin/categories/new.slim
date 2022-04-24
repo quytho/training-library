@@ -6,7 +6,7 @@
         .img_c
           img src=" https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-book-pencil-study-book-image_1216472.jpg"
         .form_new_name
-          = form.label :name 
+          = form.label :name
         .form_filename
           = form.text_field :name
           - @category.errors.full_messages_for(:name).each do |message|

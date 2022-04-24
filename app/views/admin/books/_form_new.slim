@@ -1,0 +1,42 @@
+.admin-book
+  h2
+    | Add Book
+  .adminBook-form
+    = form_for([:admin, @book]) do |form|
+      = render "shared/error_messages", object: form.object
+      .book-form
+        .book-field
+          .book-form-name
+            = form.label :name
+          .book-form-fieldname
+            = form.text_field :name
+        .book-field
+          .book-form-name
+            = form.label :amount
+          .book-form-fieldname
+            = form.text_field :amount
+        .book-field
+          .book-form-name
+            = form.label :price
+          .book-form-fieldname
+            = form.text_field :price
+        .book-field
+          .book-form-name
+            = form.label :status
+          = form.check_box :status , checked: true
+        .book-field
+          .book-form-name
+            = form.label :author
+          = form.collection_select :author_id, Author.all, :id, :name, class: "select_pub",
+            prompt: true, include_blank: "Select Author"
+          = form.fields_for :author do |author|
+            = author.text_field :name, placeholder: "Author new"
+        .book-field
+          .book-form-name
+            = form.label :publisher
+          = form.collection_select :publisher_id, Publisher.all, :id, :name, class: "select_author",
+            prompt: true, include_blank: "Select Publisher"
+          = form.fields_for :publisher do |pub|
+            = pub.text_field :name, placeholder: "Publisher new"
+        .book-submit
+          = form.submit "Add Book", class: "book-update"
