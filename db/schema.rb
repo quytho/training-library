@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2022_04_22_035403) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer "star", default: 0
+    t.integer "star"
     t.bigint "user_id"
     t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false

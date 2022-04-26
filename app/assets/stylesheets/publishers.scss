@@ -139,13 +139,16 @@
   &-book{
     gap: 0 165px;
   }
+  &-request{
+    gap: 0 90px;
+  }
 }
 .container-admin{
   background-color: rgb(255,247,223);
-  padding: 0 50px;
+  padding: 0 40px;
   display: flex;
   flex-direction: row;
-  gap: 0 40px;
+  // gap: 0 40px;
 }
 .cre{
   display: flex;

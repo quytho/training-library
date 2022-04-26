@@ -1,5 +1,6 @@
 class Author < ActiveRecord::Base
   has_many :books, dependent: :destroy
+  validates :name , presence: true
   scope :order_name, -> { order(name: :ASC)}
   scope :search_name, ->(name) { where("LOWER(name) LIKE ?", "%#{name}%") if name.present? }
   scope :search, lambda { |params|

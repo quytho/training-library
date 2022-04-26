@@ -1,0 +1,17 @@
+.request-item
+  .publisher-name 
+    = borrow_requet.book.name
+  .cre-book
+    .request-detail
+      p.publisher-create.book-create
+        = borrow_requet.user.name
+      p.publisher-create.book-create
+        = borrow_requet.borrow_date
+      p.publisher-amount 
+        = borrow_requet.status == 0 ? "Chua duyet" : "Da duyet"
+    .publisher-button.book-button
+      = link_to "Details", "#", class: "detail" 
+      - unless borrow_requet.status == 1
+        = button_tag "Accept", class: "edit", class: "edit edit_accept", data: {book_id: borrow_requet.id, status: "1"}        
+      = link_to "Reject", "#", class: "delete",
+      method: :delete, data: {confirm: "Are You sure?"}

@@ -9,9 +9,8 @@ class Book < ActiveRecord::Base
   has_many :rates, dependent: :destroy
   validates :name, presence: true
   validates :amount, presence: true
-  accepts_nested_attributes_for :publisher
-  accepts_nested_attributes_for :author
-  validates_presence_of :publisher
+  accepts_nested_attributes_for :publisher, reject_if: :all_blank
+  accepts_nested_attributes_for :author, reject_if: :all_blank
   scope :order_name, -> { order(name: :ASC)}
   scope :search_name, ->(name) { where("name LIKE ?", "%#{name}%") if name.present? }
   scope :search_author, ->(author_id) { where(author_id: author_id) if author_id.present? }

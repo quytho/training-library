@@ -10,3 +10,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree.
+$(document).ready(function () {
+  $(document).on("click", ".edit_accept", function () {
+    var sta = $(this).data('status')
+    var bookId = $(this).data('book-id')
+    $.ajax({
+      method: "patch",
+      url: "/admin/borrow_requets/"+ bookId ,
+      data: {status:sta},
+    });
+  });
+});

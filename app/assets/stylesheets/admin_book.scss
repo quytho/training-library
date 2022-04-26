@@ -39,6 +39,7 @@
     background-color: green;
     border: none;
     color: #fff;
+    margin-left: 10px;
     &:hover{
       background-color: rgb(96, 221, 96);
     }
@@ -70,4 +71,31 @@ input#book_publisher_attributes_name {
 }
 select#book_publisher_id {
   padding-right: 52px;
+}
+.dropdown-menu{
+  margin: 2px -135px 0 !important;
+  width: 140px;
+  transform: translate3d(40px, 15px, 0px) !important;
+}
+.books-request{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 77px;
+}
+.request{
+  &-item{
+    display: flex;
+    gap: 0px 16px;
+    padding: 25px 75px;
+    color: black;
+    align-items: baseline;
+    font-weight: 400;
+  }
+  &-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 41px;
+  }
 }

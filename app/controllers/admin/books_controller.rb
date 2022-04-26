@@ -22,10 +22,11 @@ class Admin::BooksController < AdminController
   end
 
   def destroy
-    if @book&.destroy
-      flash[:success] = "Delete successfully"
-    else
+    if @book.borrow_requets.exists?
       flash[:warning] = "Book delete failed"
+    else 
+      @book&.destroy
+      flash[:success] = "Delete successfully"
     end
     render :index
   end
@@ -47,7 +48,7 @@ class Admin::BooksController < AdminController
     @book = Book.new(book_params)
     if @book.save
       flash[:success] = "Book create successfully"
-      render :index
+      redirect_to new_admin_book_path
     else
       flash[:warning] = "Book create failed"
       render :new
@@ -57,7 +58,7 @@ class Admin::BooksController < AdminController
   private
 
     def book_params
-      params.require(:book).permit(:name, :amount, :price, :status, :author_id, :publisher_id,
+      params.require(:book).permit(:name, :amount, :price, :status, :author_id, :publisher_id, 
         publisher_attributes:[:name], author_attributes:[:name])
     end
     
