@@ -1,0 +1,6 @@
+= form_with model: [ @books, @books.comments.build ] do |form|
+  p
+    = form.label :Add_content
+    = form.text_area :content
+  p
+    = form.submit
