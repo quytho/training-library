@@ -1,11 +1,6 @@
-class Admin::BorrowRequetsController < ApplicationController
-  layout :dynamic_layout
+class Admin::BorrowRequetsController < AdminController
   skip_before_action :verify_authenticity_token
   before_action :get_borrow_request, except: [:index, :new, :create]
-
-  before_action :logged_in_user
-
-  before_action :admin_user
 
   def index
     @borrow_requets = BorrowRequet.includes(:user, :book)
@@ -13,11 +8,15 @@ class Admin::BorrowRequetsController < ApplicationController
   end
   
   def update
-    if  @borrow_requet.update(status: params[:status])
-      flash[:success] = "Successfully"
+    if @borrow_requet.update(status: params[:status])
+      flash[:success] = " Accept Successfully"
+      redirect_to request.referrer
+    else
+      flash[:warning] = "Publisher update failed"
       redirect_to request.referrer
     end
   end
+  
   private
 
     def book_params
@@ -31,15 +30,4 @@ class Admin::BorrowRequetsController < ApplicationController
       redirect_to admin_borrow_requets_path  
     end
 
-    def dynamic_layout
-      if true
-        "admin"
-      else
-        "users"
-      end
-    end
-
-    def update_accept
-      params.permit(:id,:status)
-    end
 end

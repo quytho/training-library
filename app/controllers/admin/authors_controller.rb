@@ -1,17 +1,13 @@
 class Admin::AuthorsController < AdminController
   before_action :get_authors, except: [:index, :new, :create]
 
-  before_action :logged_in_user
-
-  before_action :admin_user
-
   def index
     @authors = Author.search(params)
       .order_name
-      .paginate(page: params[:page], per_page: Constant::PER_PAGE)
+      .paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.html
-        format.xls { send_data @authors.to_xls(col_sep: "\t"), filename: 'export_authors_' + Constant::DATE_TIME + '.xls' }
+        format.xls { send_data @authors.to_xls(col_sep: "\t") }
       end
   end
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
-  root 'users#index'
+  root 'books#index'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

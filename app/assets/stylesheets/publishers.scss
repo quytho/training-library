@@ -101,6 +101,7 @@
   padding: 10px 15px;
   border-radius: 5px;
   color: #fff;
+  border: none;
   &:hover{
     text-decoration: none;
   }
@@ -171,12 +172,20 @@
   display: flex;
   flex-direction: column;
   gap: 20px 0;
-  /* The container <div> - needed to position the dropdown content */
+  margin-top: 30px;
   .dropdown {
+    border-radius: 5px;
     position: relative;
     display: block;
-    padding: 15px 60px;
+    padding: 15px 40px;
     background-color: #e6b63e;
+    a{
+      display: block;
+      width: 100px;
+      &:hover{
+        text-decoration: none;
+      }
+    }
 
   }
   .dropdown-content {
@@ -199,4 +208,7 @@
   margin-bottom: 0;
   font-weight: 500;
   color: red;
+}
+.dis{
+  display: none;
 }

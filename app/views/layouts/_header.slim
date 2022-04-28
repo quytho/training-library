@@ -3,12 +3,11 @@ body
     .container-fluid
       .header-main
         .header-logo
-          a = link_to 
-            img src=" https://image.shutterstock.com/image-vector/template-logo-library-bookstore-four-260nw-299085131.jpg" , '#'
+          = image_tag "Logo.png"
         ul.menu
           .menu-list
             li.menu-item
-              a.menu-link = link_to "Home", '#'
+              a.menu-link = link_to "Home", books_path
             li.menu-item
               a.menu-link = link_to "Blog", '#'
             li.menu-item
@@ -20,7 +19,7 @@ body
           - if logged_in?
             li.dropdown
               a.dropdown-toggle[href="#" data-toggle="dropdown"]
-                |  Account 
+                = current_user.name
                 b.caret
               ul.dropdown-menu
                 li
@@ -35,4 +34,4 @@ body
           - else
             .menu-button
               .button.button--primary =link_to "Signup", signup_path
-              .button.button--secondary =link_to "Log in", login_path
+              .button.button--primary =link_to "Log in", login_path

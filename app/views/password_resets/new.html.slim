@@ -1,8 +1,23 @@
 - provide(:title, "Forgot password")
-h1 Forgot password
-.row
-  .col-md-6.col-md-offset-3
-    = form_for(:password_reset, url: password_resets_path) do |f|
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
-      = f.submit "Submit", class: "btn btn-primary"
+.signin
+  .signin_left
+    .signin_head
+      .signin-element
+        = image_tag "Element01.png"
+      .signin_image
+        = image_tag "Logo.png"
+      p
+        | Ok let’s fetch you ya’ login details
+    .signin-form
+      = form_for(:password_reset, url: password_resets_path) do |f|
+        = f.email_field :email, class: 'signin_control', placeholder: "Email Address"
+        p.signin-up
+          | Already have an account? 
+          = link_to "Back to Sign Up", signup_path
+        = f.submit "Proceed", class: "button--primary signin-btn"
+    .signin-footer
+      = image_tag "Element02.png"
+  .signin_right
+    = image_tag "Group.png"
+    p
+      | Do you know you can easily choose your mode of learning on this platform? Hover aboard to know more
