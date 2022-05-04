@@ -9,11 +9,9 @@ body
             li.menu-item
               a.menu-link = link_to "Home", books_path
             li.menu-item
-              a.menu-link = link_to "Blog", '#'
+              a.menu-link = link_to "Books", books_path
             li.menu-item
               a.menu-link = link_to "Author", authors_path
-            li.menu-item
-              a.menu-link = link_to "About Us", '#'
             li.menu-item
               a.menu-link = link_to "Contact Us", '#'
           - if logged_in?
