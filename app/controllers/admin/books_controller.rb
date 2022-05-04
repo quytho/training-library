@@ -8,7 +8,7 @@ class Admin::BooksController < AdminController
   end
   
   def index
-    @books = Book.includes(:author).search(params)
+    @books = Book.includes(:author, :borrow_requets).search(params)
       .order_name
       .paginate(page: params[:page], per_page: 10)
       respond_to do |format|
