@@ -1,12 +1,21 @@
 = render "form_search"
-h3
-  | Tong sach : 
-  = @books.length
-.book
-  - if @books.empty?
-    p.message
-      | Không có sách vào cả!!!
-  - else
-    = render @books
+section.courses.wrapper
+  .container
+    .courses-main
+      .courses-heading All Books
+      .courses-category
+        a.courses-link href="#!"  All
+        a.courses-link href="#!"  Design
+        a.courses-link href="#!"  Web Development
+        a.courses-link href="#!"  Digital
+        a.courses-link href="#!"  Photography
+        a.courses-link href="#!"  Motion Graphics
+        a.courses-link href="#!"  Digital Marketing
+      .courses-list
+        - if @books.empty?
+          p.message
+            | Không có sách vào cả!!!
+        - else
+          = render @books
 .center_pag
   = will_paginate @books

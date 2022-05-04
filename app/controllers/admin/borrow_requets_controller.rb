@@ -16,7 +16,8 @@ class Admin::BorrowRequetsController < AdminController
       redirect_to request.referrer
     end
   end
-  
+  def show
+  end
   private
 
     def book_params
@@ -29,5 +30,5 @@ class Admin::BorrowRequetsController < AdminController
       flash[:warning] = "That request could not be found"
       redirect_to admin_borrow_requets_path  
     end
-
+    
 end
